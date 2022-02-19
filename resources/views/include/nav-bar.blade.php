@@ -14,11 +14,17 @@
                     <div class="sidebar-container">
                         <div class="sidebar-header">
                             <div class="brand">
-                                <div class="logo">
                                     <a href="{{route('admin.home')}}">
-                                        Job Portal
+                                    <h1 class="auth-title">
+                                        <div class="logo">
+                                            <span class="l l1"></span>
+                                            <span class="l l2"></span>
+                                            <span class="l l3"></span>
+                                            <span class="l l4"></span>
+                                            <span class="l l5"></span>
+                                        </div>
+                                    </h1>
                                     </a>
-                                </div>
                               
                             </div>
                         </div>
