@@ -120,8 +120,27 @@ class JobController extends Controller
      */
     public function update(Request $request, $id)
     {
-        return $request->all();
-        return $id;
+
+        //return $request->all();
+
+            if ($request->hasFile('thumbnail')) {
+            $image = $request->file('thumbnail');
+            $teaser_image = time().'.'.$image->getClientOriginalExtension();
+            $destinationPath = public_path('/image');
+            $image->move($destinationPath, $teaser_image);
+            }
+            
+            $data = Job::find($id);        
+            $data->tilte = $request->title;
+            $data->job_types_id = $request->job_types_id;
+            $data->description = $request->description;
+            $data->thumbnail = $teaser_image ?? $data->thumbnail;
+            $data->status = $request->status;
+            $data->save();
+
+            // redirect
+            return redirect()->route('job.index');
+
     }
 
     /**

@@ -7,7 +7,8 @@
         <div class="title-block">
             <h3 class="title"> Edit job <span class="sparkline bar" data-type="bar"></span></h3>
         </div>
-        <form action="{{route('job.update', $job->id)}}" enctype="multipart/form-data" method="PUT">
+        <form action="{{route('job.update', $job->id)}}" enctype="multipart/form-data" method="post">
+            @method('PUT')
             @csrf
             <div class="card card-block">
                 <div class="form-group row">
